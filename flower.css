@@ -1,0 +1,488 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    background: #090b18;
+    font-family: Arial, sans-serif;
+}
+
+/* Main Garden */
+.garden {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 70%,
+            #52001d 0%,
+            #25000f 40%,
+            #08000b 100%
+        );
+}
+
+/* Background Glow */
+.garden::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 30, 90, 0.15),
+            transparent 50%
+        );
+}
+
+/* Title */
+.title {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: white;
+    font-size: clamp(28px, 5vw, 60px);
+    font-weight: 800;
+
+    text-align: center;
+    z-index: 10;
+}
+
+.title span {
+    color: #a9f53d;
+}
+
+
+/* =========================
+   FLOWER
+========================= */
+
+.flower {
+    position: absolute;
+
+    bottom: 12%;
+
+    width: 70px;
+    height: 70px;
+
+    transform-origin: bottom center;
+
+    animation: sway 3s ease-in-out infinite;
+}
+
+
+/* Stem */
+
+.flower::before {
+    content: "";
+
+    position: absolute;
+
+    width: 5px;
+    height: 180px;
+
+    left: 50%;
+    bottom: -155px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            #ff315e,
+            #53001d
+        );
+
+    border-radius: 10px;
+}
+
+
+/* Leaves */
+
+.flower::after {
+    content: "";
+
+    position: absolute;
+
+    width: 35px;
+    height: 15px;
+
+    left: -5px;
+    bottom: -80px;
+
+    background: #7d1633;
+
+    border-radius: 100% 0;
+
+    transform: rotate(-30deg);
+
+    box-shadow:
+        45px 35px 0 #7d1633,
+        35px 70px 0 #64102b;
+}
+
+
+/* =========================
+   PETALS
+========================= */
+
+.petal {
+    position: absolute;
+
+    width: 42px;
+    height: 55px;
+
+    left: 14px;
+    top: 8px;
+
+    background:
+        radial-gradient(
+            circle at 50% 70%,
+            #ff7189,
+            #ff315d 60%,
+            #d9003d
+        );
+
+    border-radius:
+        50% 50% 45% 45%;
+
+    transform-origin: 50% 100%;
+
+    box-shadow:
+        0 0 15px rgba(255, 40, 90, 0.5);
+}
+
+
+/* Six Petals */
+
+.petal:nth-child(1) {
+    transform:
+        rotate(0deg)
+        translateY(-20px);
+}
+
+.petal:nth-child(2) {
+    transform:
+        rotate(60deg)
+        translateY(-20px);
+}
+
+.petal:nth-child(3) {
+    transform:
+        rotate(120deg)
+        translateY(-20px);
+}
+
+.petal:nth-child(4) {
+    transform:
+        rotate(180deg)
+        translateY(-20px);
+}
+
+.petal:nth-child(5) {
+    transform:
+        rotate(240deg)
+        translateY(-20px);
+}
+
+.petal:nth-child(6) {
+    transform:
+        rotate(300deg)
+        translateY(-20px);
+}
+
+
+/* Flower Center */
+
+.center {
+    position: absolute;
+
+    width: 25px;
+    height: 25px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #ffffff,
+            #ffb0b8 35%,
+            #ff315d
+        );
+
+    box-shadow:
+        0 0 15px #ff315d,
+        0 0 30px rgba(255, 40, 90, 0.6);
+
+    z-index: 5;
+}
+
+
+/* =========================
+   BIG FLOWER
+========================= */
+
+.big {
+    left: 32%;
+    bottom: 17%;
+
+    animation:
+        bigSway 4s ease-in-out infinite;
+}
+
+
+/* Right Big Flower */
+
+.right-big {
+    left: 66%;
+    bottom: 25%;
+
+    animation:
+        rightSway 4s ease-in-out infinite;
+}
+
+
+/* =========================
+   SMALL FLOWERS
+========================= */
+
+.small {
+    transform: scale(0.55);
+
+    animation:
+        smallSway 3s ease-in-out infinite;
+}
+
+
+/* Positions */
+
+.f1 {
+    left: 12%;
+    bottom: 30%;
+}
+
+.f2 {
+    left: 25%;
+    bottom: 43%;
+}
+
+.f3 {
+    left: 43%;
+    bottom: 38%;
+}
+
+.f4 {
+    left: 58%;
+    bottom: 42%;
+}
+
+.f5 {
+    left: 78%;
+    bottom: 31%;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes bigSway {
+
+    0%,
+    100% {
+        transform:
+            scale(1.5)
+            rotate(-3deg);
+    }
+
+    50% {
+        transform:
+            scale(1.5)
+            rotate(3deg);
+    }
+}
+
+
+@keyframes rightSway {
+
+    0%,
+    100% {
+        transform:
+            scale(1.25)
+            rotate(3deg);
+    }
+
+    50% {
+        transform:
+            scale(1.25)
+            rotate(-3deg);
+    }
+}
+
+
+@keyframes smallSway {
+
+    0%,
+    100% {
+        transform:
+            scale(0.55)
+            rotate(-4deg);
+    }
+
+    50% {
+        transform:
+            scale(0.55)
+            rotate(4deg);
+    }
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart {
+    position: absolute;
+
+    color: #ff5275;
+
+    font-size: 20px;
+
+    animation:
+        float 5s linear infinite;
+
+    opacity: 0.8;
+}
+
+.h1 {
+    left: 10%;
+    bottom: 20%;
+}
+
+.h2 {
+    left: 78%;
+    bottom: 30%;
+
+    animation-delay: 1s;
+}
+
+.h3 {
+    left: 88%;
+    bottom: 50%;
+
+    animation-delay: 2s;
+}
+
+.h4 {
+    left: 55%;
+    bottom: 25%;
+
+    animation-delay: 3s;
+}
+
+
+@keyframes float {
+
+    0% {
+        transform:
+            translateY(30px)
+            scale(0.7);
+
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-300px)
+            scale(1.1);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.message {
+    position: absolute;
+
+    bottom: 30px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    padding:
+        12px 25px;
+
+    border:
+        1px solid #ff4168;
+
+    border-radius: 30px;
+
+    color: white;
+
+    background:
+        rgba(255, 20, 70, 0.1);
+
+    backdrop-filter: blur(5px);
+
+    cursor: pointer;
+
+    z-index: 20;
+}
+
+
+.message:hover {
+    background:
+        rgba(255, 20, 70, 0.3);
+}
+
+.click-heart {
+    position: fixed;
+
+    color: #ff4168;
+    font-size: 30px;
+
+    pointer-events: none;
+
+    animation: clickHeart 1s ease-out forwards;
+
+    z-index: 100;
+}
+
+@keyframes clickHeart {
+
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-80px)
+            scale(1.5);
+
+        opacity: 0;
+    }
+}
